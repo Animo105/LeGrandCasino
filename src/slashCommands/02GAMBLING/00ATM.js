@@ -14,11 +14,15 @@ module.exports = {
             return;
         }
 
+        let desc = "Not built yet.";
+
         let embed = new EmbedBuilder()
-            .setTitle("# ===== [ATM] =====")
-            .setColor([201, 18, 18]);
+            .setTitle(" ===== [ATM] ===== ")
+            .setColor([201, 18, 18])
+            .setDescription(desc);
         
-        let desc = "";
+        interaction.editReply({embeds: [embed]});
+        
         
 
 

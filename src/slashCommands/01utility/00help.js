@@ -10,12 +10,14 @@ module.exports = {
         //load help embed
         await interaction.deferReply()
 
-        let desc = `**WELCOME, to the great casino.** use **/register** to create an account. you can add a small description if you want that will be displayed along your information with **/info**.`
+        let desc = `WELCOME, to **Le Grand Casino.** use **/register** to create an account. you can add a small description if you want that will be displayed along your information with **/info**.`
         desc += `all command shown below are / commands, for the none slash command, use **${prefix}commands**.`
+        
         desc += `\n\n__**Utility commands**__\n **/info <user>** : display information about your account, or someone else's.`+
         `\n **/donate <user> <amount>** : donate an <amount> of money to a <user>.`+
         `\n**/shop** : to open the casino shop.`+
         `\n**/atm** : hold some special reward and money prizes, may vary by which achivement or title you've obtained.`+
+
         `\n\n__**Gambling commands**__\n **/slotmachine** : take 100$ to do one pull, be carful with it.`+
         `\n**/roulette <...** : this one has a lot of option, use **/roulette info** for more info.\n`
 

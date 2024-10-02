@@ -23,7 +23,15 @@ module.exports = {
 
             membership:'none',
 
+            achivement:[],
+            intentory:[],
+
+            //object {name:"", count:"", desc:""}
+
             SM:{time:0, moneyIn:0, moneyOut:0, jackpot:0},
+            FR:{time:0, moneyIn:0, moneyOut:0},
+            poker:{time:0, moneyIn:0, moneyOut:0},
+            mug:{time:0},
 
             donation:{given:0, recived:0}
             

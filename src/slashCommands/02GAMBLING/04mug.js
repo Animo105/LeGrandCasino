@@ -90,6 +90,9 @@ module.exports = {
                     data.money -= bid;
                     otherdata.money += bid;
                 }
+                
+                data.mug.time += 1;
+
                 client.saveData(data, interaction.user.id, interaction.guildId);
                 client.saveData(otherdata, user.id, interaction.guildId);
             }
