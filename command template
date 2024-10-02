@@ -1,0 +1,11 @@
+module.exports = {
+    name: "texte a entrer pour la commande",
+    description:"description qui s'affiche",
+    //options:<option1><option2><etc>
+    //dev:true,
+    //disabled:true,
+    execute(msg) {
+        let data = client.checkAccount(msg.author.id, msg.guild.id);
+        //peu ajouter en argument "client" pour avoir les info du bot (commande et autre fonction)
+    }
+}

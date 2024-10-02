@@ -1,0 +1,20 @@
+const { SlashCommandBuilder } = require("discord.js");
+
+module.exports = {
+    data: new SlashCommandBuilder()
+        .setName("nom")
+        .setDescription("description"),
+
+    async execute(interaction, client) {
+        await interaction.deferReply();
+
+        let data = client.checkAccount(interaction.user.id, interaction.guildId);
+        if (!data) {
+            interaction.editReply("There's no account registered under that name.")
+            return;
+        }
+
+
+        
+    }
+}
