@@ -50,14 +50,19 @@ module.exports = {
                 await interaction.editReply("What do you take me for? The bank?\n You can't bet money you don't have.");
                 return;
             }
+
+            data.money-=amount*100;
+            data.SM.moneyIn+=amount*100;
+
             //if done only one time
             if (amount == 1) {
                 let object = await slotRoll(interaction, true);
                 data.SM.jackpot += object.jackpot;
                 data.SM.moneyOut += object.moneyOut;
-                data.money += total.moneyOut;
+                data.money += object.moneyOut;
                 data.SM.time += 1;
 
+                client.saveData(data, interaction.user.id, interaction.guildId);
             }
             //if done multiple time
             else {
@@ -81,18 +86,14 @@ module.exports = {
                 data.SM.time += amount;
 
                 if (amount > 15) {
-                    interaction.editReply(forceDesc + `rolls: **${amount}** \n Jackpot hit: **${total.jackpot}** ${jackpot}\n Total money win: **${total.moneyOut}$** (profit: **${total.moneyOut - (amount*100)}$**)`);
+                    interaction.editReply(forceDesc + `rolls: **${amount}** \n Jackpot hit: **${total.jackpot}** ${jackpot}\n Total money win: **${total.moneyOut}$**`);
                 } else {
-                    total.desc += `\n Jackpot hit: **${total.jackpot}** \n Total money win: **${total.moneyOut}$** (profit: **${total.moneyOut - (amount*100)}**$)`
+                    total.desc += `\n Jackpot hit: **${total.jackpot}** \n Total money win: **${total.moneyOut}$**`
                     interaction.editReply(total.desc);
                 }
 
+                client.saveData(data, interaction.user.id, interaction.guildId);
             }
-
-            //save info
-            data.money-=amount*100;
-            data.SM.moneyIn+=amount*100;
-            client.saveData(data, interaction.user.id, interaction.guildId);
 
         }
         else {

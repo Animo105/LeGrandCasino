@@ -25,15 +25,15 @@ module.exports = async (interaction, once) => {
     if (random <= 0.15) {}
     else if (random <= 0.65) reward = values[1];
     else if (random <= 0.77) reward = values[2];
-    else if (random <= 0.85) reward = values[3];
-    else if (random <= 0.60) reward = values[4];
-    else if (random <= 0.94) reward = values[5];
+    else if (random <= 0.83) reward = values[3];
+    else if (random <= 0.89) reward = values[4];
+    else if (random <= 0.93) reward = values[5];
     else if (random <= 0.97) reward = values[6];
     else if (random <= 0.99) reward = values[7];
     else if (random < 1) reward = values[8];
 
     //gamble, deal avec les chances
-    if (Math.random() > 0.96) {
+    if (Math.random() > 0.95) {
         //=================================================win 3=================================================
         console.log("win,",reward);
         rolls[0] = reward;
@@ -125,12 +125,13 @@ module.exports = async (interaction, once) => {
                 let win = 100 * (rolls[1].v / 2);
                 await interaction.editReply(`# ${desc} **-** <@${interaction.user.id}> Double! you won **${win}$**`);
                 data.moneyOut+=win;
+                data.jackpot = 0;
 
             }
             //rien
             else {
                 await interaction.editReply(`# ${desc} **-** <@${interaction.user.id}> has lost.`);
-                
+                data.jackpot = 0;
                 
             }
             //================================================================================
@@ -146,8 +147,9 @@ module.exports = async (interaction, once) => {
         //jackpot
         if (rolls[0].v === rolls[1].v && rolls[1].v === rolls[2].v) {
 
-            if (rolls[0] == 1000) {
+            if (rolls[0] == 1000 || rolls[0] == 500) {
                 data.bowl = true;
+                if (rolls[0] == 1000) data.desc += "@everyone"
             }
             else {
                 data.desc += " - __**jackpot!**__";
@@ -159,6 +161,9 @@ module.exports = async (interaction, once) => {
         }
         //double
         else if (rolls[0] === rolls[1] || rolls[1] === rolls[2])  {
+            if (rolls[1] == 1000) {
+                data.bowl = true;
+            }
             data.desc += " - **Double**";
             let win = 100 * (rolls[0].v / 2);
             data.moneyOut+=win;

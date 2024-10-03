@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
-const {botId} = require('./../../../config.json')
+const {botId} = require('../../../config.json')
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -84,13 +84,14 @@ module.exports = {
                     interaction.editReply(`__**BANG!**__ <@${interaction.user.id}> shot <@${user.id}>, stealing ${bid}$ in their account.`)
                     otherdata.money -= bid;
                     data.money += bid;
+                    data.mug.amount += bid;
                 }
                 else {
                     interaction.editReply(`*click...* <@${interaction.user.id}> failed to shoot <@${user.id}>. Gotta pay up now ( ${user.displayName} gain ${bid}$)`);
                     data.money -= bid;
                     otherdata.money += bid;
                 }
-                
+
                 data.mug.time += 1;
 
                 client.saveData(data, interaction.user.id, interaction.guildId);

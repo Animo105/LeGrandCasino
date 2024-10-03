@@ -11,7 +11,7 @@ module.exports = {
         await interaction.deferReply()
 
         let desc = `WELCOME, to **Le Grand Casino.** use **/register** to create an account. you can add a small description if you want that will be displayed along your information with **/info**.`
-        desc += `all command shown below are / commands, for the none slash command, use **${prefix}commands**.`
+        desc += `all command shown below are / commands, for the none slash command, use **${prefix}commands**.\n :warning: The database is shit, if you spam to much commands some stuff might not register proprely and i wont be responsible. (the risk is low but i's there)`
         
         desc += `\n\n__**Utility commands**__\n **/info <user>** : display information about your account, or someone else's.`+
         `\n **/donate <user> <amount>** : donate an <amount> of money to a <user>.`+

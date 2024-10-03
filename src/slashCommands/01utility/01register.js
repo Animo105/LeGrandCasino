@@ -24,16 +24,25 @@ module.exports = {
             membership:'none',
 
             achivement:[],
-            intentory:[],
+            inventory:[],
+            NFTlist:[],
 
             //object {name:"", count:"", desc:""}
 
             SM:{time:0, moneyIn:0, moneyOut:0, jackpot:0},
+            NFTslot:0,
             FR:{time:0, moneyIn:0, moneyOut:0},
             poker:{time:0, moneyIn:0, moneyOut:0},
-            mug:{time:0},
+            blackjack:{time:0, moneyIn:0, moneyOut:0},
+            dice:{time:0, moneyIn:0, moneyOut:0},
 
-            donation:{given:0, recived:0}
+
+            mug:{time:0, amount:0},
+
+            donation:{given:0, recived:0},
+
+            ATM:[],
+            lastATM:new Date()
             
         }
         var jsonData = JSON.stringify(data);
