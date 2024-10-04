@@ -4,7 +4,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("atm")
         .setDescription("hold some reward for you. don't forget to check it once in a while."),
-
+    test:true,
     async execute(interaction, client) {
         await interaction.deferReply();
 
@@ -21,14 +21,10 @@ module.exports = {
 
         let date = new Date()
         let last = data.lastATM
-
-        if (date - last < 86_400_000) {
-            desc = "**Money:** Allready claimed\n"
-        }
-        else {
-            "**Money:** more be claimable in the future (500$ pour le moment)\n"
-            data.money += 500
-        }
+        let interest = ((date - last) / 86400000) * 5;
+        
+        desc = "**Money:** "+Math.floor(interest*100)+"$**\n"
+        data.money+=Math.floor(interest*100);
 
         //claiming stuff
         atm.forEach(e => {
@@ -46,7 +42,7 @@ module.exports = {
             }
             else if (e.type == "nft") {
                 //==================claim an nft===========================
-                let obj = {name:e.name, value:e.value};
+                let obj = {name:e.name, value:e.value, link:e.link};
                 data.NFTlist.push(obj);
 
             }
@@ -56,6 +52,8 @@ module.exports = {
                 
 
         });
+        client.saveData(data, interaction.user.id, interaction.guildId)
+
 
 
 

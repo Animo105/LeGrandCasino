@@ -18,7 +18,7 @@ module.exports = {
             name:interaction.user.displayName,
             desc:interaction.options.getString('description') ?? '',
 
-            money:100,
+            money:500,
             spent:0,
 
             membership:'none',
@@ -54,7 +54,7 @@ module.exports = {
             await interaction.editReply("Something went wrong.");
             return;
         }
-        await interaction.editReply("You have been registed. Welcome to the Grand Casino.");
+        await interaction.editReply("You have been registed. Welcome to the Grand Casino. Do **/info** to see your account.");
 
 
     }

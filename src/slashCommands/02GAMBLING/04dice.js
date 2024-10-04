@@ -12,7 +12,7 @@ module.exports = {
             )
             .addIntegerOption(o => o
                 .setName("amount").setDescription("The amount of money you bet on the roll.").setRequired(true)
-                .setMinValue(100).setMaxValue(10000)
+                .setMinValue(10).setMaxValue(10000)
             )
         )
         .addSubcommand(subcommand => subcommand
@@ -70,7 +70,7 @@ module.exports = {
         rolls.push(dies[Math.floor(Math.random()*6)]);
         rolls.push(dies[Math.floor(Math.random()*6)]);
 
-        let message = `# the dies are rolled: ${rolls[0].emote}${rolls[1].emote}.\n`
+        let message = `# the dice are rolled: ${rolls[0].emote}${rolls[1].emote}.\n`
         let bet = interaction.options.getInteger('roll')
         //win
         if (bet == rolls[0].value + rolls[1].value) {
@@ -85,7 +85,7 @@ module.exports = {
             data.dice.moneyOut+= money;
         }
         //lose
-        else {message+= "You lose."}
+        else {message+= "You lose. (**-"+money+"$**)"}
 
         interaction.editReply(message);
 

@@ -30,7 +30,7 @@ module.exports = {
             .setName("info")
             .setDescription("display information about french roulette.")
         ),
-
+    test:true,
     async execute(interaction, client) {
         await interaction.deferReply();
 

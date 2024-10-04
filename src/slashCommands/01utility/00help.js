@@ -12,11 +12,14 @@ module.exports = {
 
         let desc = `WELCOME, to **Le Grand Casino.** use **/register** to create an account. you can add a small description if you want that will be displayed along your information with **/info**.`
         desc += `all command shown below are / commands, for the none slash command, use **${prefix}commands**.\n :warning: The database is shit, if you spam to much commands some stuff might not register proprely and i wont be responsible. (the risk is low but i's there)`
-        
+        //info
         desc += `\n\n__**Utility commands**__\n **/info <user>** : display information about your account, or someone else's.`+
+        //donate
         `\n **/donate <user> <amount>** : donate an <amount> of money to a <user>.`+
+        //shop
         `\n**/shop** : to open the casino shop.`+
-        `\n**/atm** : hold some special reward and money prizes, may vary by which achivement or title you've obtained.`+
+        //atm
+        `\n(:warning: disabled for now) **/atm** : hold some special reward and money prizes, may vary by which achivement or title you've obtained.`+
 
         `\n\n__**Gambling commands**__\n **/slotmachine** : take 100$ to do one pull, be carful with it.`+
         `\n**/roulette <...** : this one has a lot of option, use **/roulette info** for more info.\n`
