@@ -1,15 +1,8 @@
 const { EmbedBuilder } = require("discord.js")
-const {prefix} = require('./../../../config.json')
+const {prefix} = require('../../../config.json')
 
 
 module.exports = (data) => {
-
-    let infoFlieds =[
-    {
-        name:"__Account Statistics__",
-        value:`**Tries taken:** ${data.SM.time}\n **Cost:** ${data.SM.moneyIn}$ \n **Money cashed out:** ${data.SM.moneyOut}$.`
-    }
-    ];
 
     let embed = new EmbedBuilder().setTitle("Info")
     .setDescription(
@@ -26,7 +19,17 @@ module.exports = (data) => {
         +":bowl_with_spoon::bowl_with_spoon::bowl_with_spoon: => 100 000\n"
         +"if you have only 2 of the 3 you win a **Double** (half the prize), :pineapple: act as blank slates (no value).\n"
     )
-    .setFields(infoFlieds)
+
+    if (data) {
+        let infoFlieds =[
+            {
+                name:"__Account Statistics__",
+                value:`**Tries taken:** ${data.SM.time}\n **Cost:** ${data.SM.moneyIn}$ \n **Money cashed out:** ${data.SM.moneyOut}$.`
+            }
+            ];
+
+        embed.setFields(infoFlieds)
+    }
 
     return embed;
 }

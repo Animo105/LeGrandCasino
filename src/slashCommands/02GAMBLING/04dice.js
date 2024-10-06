@@ -7,7 +7,7 @@ module.exports = {
         .addSubcommand(subcommand => subcommand
             .setName("roll").setDescription("Take a bet and roll the dices.")
             .addIntegerOption(o => o
-                .setName("roll").setDescription("The number the dice need to display for you to win.").setRequired(true)
+                .setName("number").setDescription("The number the 2 dice need to display for you to win. (between 2 and 12)").setRequired(true)
                 .setMinValue(2).setMaxValue(12)
             )
             .addIntegerOption(o => o
@@ -74,10 +74,7 @@ module.exports = {
         let bet = interaction.options.getInteger('roll')
         //win
         if (bet == rolls[0].value + rolls[1].value) {
-            //7 fait *3, 2 et 12 fait * 10 et le reste fait *4
-            if (bet == 7) money = money*3;
-            else if (bet == 2 || bet == 12) money = money*10;
-            else money = money*4;
+            money = money*2;
 
 
             message+=" You Win! you gained **"+money+"$**."

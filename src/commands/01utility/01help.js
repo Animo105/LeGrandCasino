@@ -2,7 +2,7 @@ const { EmbedBuilder } = require("@discordjs/builders")
 const {prefix} = require('../../../config.json')
 
 module.exports = {
-    name: 'command',
+    name: 'list',
     description: 'Send all chat command that arent for devs.',
 
     async execute(msg, client) {
